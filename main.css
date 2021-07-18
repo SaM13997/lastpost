@@ -1,6 +1,9 @@
+html,
 body {
   padding: 0;
   margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 a {
@@ -23,22 +26,38 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
   background: #020024;
   background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(0%, #4ea8de), to(#80ffdb));
   background: linear-gradient(90deg, #020024 0%, #4ea8de 0%, #80ffdb 100%);
+  width: 100vw;
   height: 10vh;
+  z-index: 10;
 }
 
-header p.logo {
+header img {
+  width: 3%;
+  padding-left: 1rem;
+}
+
+@media (max-width: 550px) {
+  header img {
+    width: 10%;
+  }
+}
+
+header p#logo {
   font-size: 4vw;
   color: white;
-  font-family: "DM Sans", sans-serif;
+  font-family: "MuseoModerno", cursive;
   font-weight: 800;
-  padding-left: 2vw;
+  padding-left: 1rem;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 @media (max-width: 850px) {
-  header p.logo {
+  header p#logo {
     font-size: 2rem;
   }
 }
@@ -71,12 +90,20 @@ header a:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 5% 10%;
+  padding-top: 0;
   margin-top: 0;
   height: 100vh;
+  margin-bottom: 0;
 }
 
 .hero img {
   width: 70%;
+  -webkit-transition: ease all 0.2s 0.5s;
+  transition: ease all 0.2s 0.5s;
+}
+
+.hero img#vector {
+  padding-top: 5rem;
 }
 
 .hero p {
@@ -88,13 +115,105 @@ header a:hover {
   bottom: 1rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+  .hero {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .hero img {
     width: 100%;
+  }
+  .hero img#vector {
+    padding-bottom: 5rem;
   }
   .hero p {
     width: 90vw;
   }
+}
+
+.lastpost-hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: ease all 0.2s 0.5s;
+  transition: ease all 0.2s 0.5s;
+}
+
+.lastpost-hero p {
+  font-family: "open sans";
+  font-size: 1.5em;
+  text-transform: capitalize;
+  -webkit-transition: ease all 0.2s 0.5s;
+  transition: ease all 0.2s 0.5s;
+}
+
+.lastpost-hero a {
+  color: black;
+  font-family: "open sans";
+  font-size: 1.5em;
+  text-transform: capitalize;
+  border: 1px solid #d197a1;
+  padding: 0.5em 1em;
+  background-color: #ffd5dd;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  -webkit-transition: ease all 0.5s 0.5s;
+  transition: ease all 0.5s 0.5s;
+}
+
+.lastpost-hero a#github {
+  background-color: #b44559;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .lastpost-hero {
+    margin-top: -8rem;
+  }
+  .lastpost-hero p {
+    width: 80vw;
+    text-align: center;
+  }
+  .lastpost-hero a {
+    font-size: 4vmin;
+    text-transform: capitalize;
+    padding: 10px 20px;
+  }
+}
+
+.how-to {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 2rem;
+  background-color: beige;
+}
+
+.how-to p {
+  text-transform: uppercase;
+  font-family: "dm sans";
+  font-size: 36px;
+  font-weight: 800;
 }
 
 .grid-container {
