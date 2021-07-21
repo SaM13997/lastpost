@@ -4,6 +4,10 @@ body {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  scroll-behavior: smooth;
+  min-width: 100vw;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(140deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
 a {
@@ -16,7 +20,23 @@ ul {
   list-style: none;
 }
 
-header {
+.hero-grid-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: 1fr 9fr;
+      grid-template-rows: 1fr 9fr;
+  height: 100vh;
+  padding-bottom: 10vh;
+      grid-template-areas: "header header" "vector hero-text";
+}
+
+.hero-grid-container header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,29 +46,26 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
-  background: #020024;
-  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(0%, #4ea8de), to(#80ffdb));
-  background: linear-gradient(90deg, #020024 0%, #4ea8de 0%, #80ffdb 100%);
-  width: 100vw;
+  width: 100%;
   height: 10vh;
-  z-index: 10;
 }
 
-header img {
+.hero-grid-container header img {
   width: 3%;
-  padding-left: 1rem;
+  padding-left: 4vmin;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 @media (max-width: 550px) {
-  header img {
+  .hero-grid-container header img {
     width: 10%;
   }
 }
 
-header p#logo {
-  font-size: 4vw;
-  color: white;
+.hero-grid-container header p#logo {
+  font-size: 4rem;
+  color: #131a29;
   font-family: "MuseoModerno", cursive;
   font-weight: 800;
   padding-left: 1rem;
@@ -57,25 +74,62 @@ header p#logo {
 }
 
 @media (max-width: 850px) {
-  header p#logo {
-    font-size: 2rem;
+  .hero-grid-container header p#logo {
+    font-size: 8vw;
   }
 }
 
-header a {
+.hero-grid-container header .contact-header {
   margin-left: auto;
-  margin-right: 2vw;
-  border: 1px solid #4ae7bb;
+  padding-right: 2rem;
+}
+
+.hero-grid-container header .contact-header a {
+  color: black;
+  font-weight: 600;
+  font-family: "open sans";
+  display: block;
   padding: 1em 2em;
-  background-color: #4ae7bb;
+  background-color: #fcc3de;
   border-radius: 50px;
 }
 
-header a:hover {
-  border: 1px solid;
+.hero-grid-container header .contact-header a:hover {
+  border-bottom: 5px solid #eea0c4;
 }
 
-.hero {
+@media (max-width: 500px) {
+  .hero-grid-container header img {
+    display: none;
+  }
+  .hero-grid-container header .contact-header {
+    padding-right: 1rem;
+  }
+}
+
+.hero-grid-container .img-vector {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: vector;
+}
+
+.hero-grid-container .img-vector img {
+  width: 90%;
+}
+
+.hero-grid-container .hero-text {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: hero-text;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -89,49 +143,9 @@ header a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 5% 10%;
-  padding-top: 0;
-  margin-top: 0;
-  height: 100vh;
-  margin-bottom: 0;
 }
 
-.hero img {
-  width: 70%;
-  -webkit-transition: ease all 0.2s 0.5s;
-  transition: ease all 0.2s 0.5s;
-}
-
-.hero img#vector {
-  padding-top: 5rem;
-}
-
-.hero p {
-  font-size: 3rem;
-  font-family: "DM Sans";
-  font-weight: 700;
-  text-align: center;
-  position: relative;
-  bottom: 1rem;
-}
-
-@media (max-width: 800px) {
-  .hero {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .hero img {
-    width: 100%;
-  }
-  .hero img#vector {
-    padding-bottom: 5rem;
-  }
-  .hero p {
-    width: 90vw;
-  }
-}
-
-.lastpost-hero {
+.hero-grid-container .hero-text .lastpost-hero {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -145,75 +159,84 @@ header a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: ease all 0.2s 0.5s;
-  transition: ease all 0.2s 0.5s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
-.lastpost-hero p {
+.hero-grid-container .hero-text .lastpost-hero p.logo {
+  font-family: "MuseoModerno", cursive;
+  font-size: 10vw;
+  font-weight: 900;
+  color: #19182b;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.hero-grid-container .hero-text .lastpost-hero p {
   font-family: "open sans";
   font-size: 1.5em;
   text-transform: capitalize;
-  -webkit-transition: ease all 0.2s 0.5s;
-  transition: ease all 0.2s 0.5s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  text-align: center;
 }
 
-.lastpost-hero a {
+.hero-grid-container .hero-text .lastpost-hero a {
   color: black;
   font-family: "open sans";
   font-size: 1.5em;
   text-transform: capitalize;
-  border: 1px solid #d197a1;
+  display: block;
   padding: 0.5em 1em;
-  background-color: #ffd5dd;
+  width: 50%;
+  background-color: #fcc3de;
   border-radius: 50px;
+  text-align: center;
   margin-bottom: 1rem;
-  -webkit-transition: ease all 0.5s 0.5s;
-  transition: ease all 0.5s 0.5s;
+  border-bottom: 5px solid transparent;
 }
 
-.lastpost-hero a#github {
-  background-color: #b44559;
-  color: white;
-}
-
-@media (max-width: 600px) {
-  .lastpost-hero {
-    margin-top: -8rem;
-  }
-  .lastpost-hero p {
-    width: 80vw;
-    text-align: center;
-  }
-  .lastpost-hero a {
-    font-size: 4vmin;
-    text-transform: capitalize;
-    padding: 10px 20px;
+@media (max-width: 485px) {
+  .hero-grid-container .hero-text .lastpost-hero a {
+    font-size: 1em;
   }
 }
 
-.how-to {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-bottom: 2rem;
-  background-color: beige;
+.hero-grid-container .hero-text .lastpost-hero a:hover {
+  border-bottom: 5px solid #eea0c4;
 }
 
-.how-to p {
-  text-transform: uppercase;
-  font-family: "dm sans";
-  font-size: 36px;
-  font-weight: 800;
+@media (max-width: 1000px) {
+  .hero-grid-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+  }
+  .hero-grid-container header {
+    padding-bottom: 2rem;
+    justify-self: flex-start;
+  }
+  .hero-grid-container .img-vector {
+    width: 80%;
+  }
+  .hero-grid-container .hero-text .lastpost-hero p {
+    font-size: 5vw;
+    width: 80%;
+  }
+  .hero-grid-container .hero-text .lastpost-hero p.logo {
+    font-size: 20vw;
+  }
 }
 
 .grid-container {
@@ -221,9 +244,12 @@ header a:hover {
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin: 3rem 3rem;
-  margin-bottom: 2px;
+  gap: 2vw 2vw;
+  margin: 3rem 10%;
+  padding: 10% 10%;
+  margin-bottom: 2rem;
+  grid-auto-rows: 1fr;
+  height: 80vh;
 }
 
 .grid-container .grid-item {
@@ -243,23 +269,26 @@ header a:hover {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  background-color: #fcd099;
   border-radius: 50px;
-  -webkit-box-shadow: 5px 10px 10px #888888;
-          box-shadow: 5px 10px 10px #888888;
+  -webkit-box-shadow: 5px 10px 10px #aaa7ee;
+          box-shadow: 5px 10px 10px #aaa7ee;
   margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  height: 100%;
+  padding: 10px;
 }
 
 .grid-container .grid-item img {
-  width: 50%;
+  width: 70%;
 }
 
 .grid-container .grid-item p {
   font-family: "open sans";
   font-size: 1.1rem;
   font-weight: 600;
-  width: 40%;
+  width: 90%;
   text-align: center;
+  text-transform: capitalize;
 }
 
 @media (max-width: 750px) {
@@ -270,7 +299,7 @@ header a:hover {
 }
 
 .grid-container .bidding img {
-  height: 70%;
+  height: 60%;
 }
 
 @media (max-width: 750px) {
@@ -278,11 +307,14 @@ header a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    height: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .grid-container .grid-item img {
     width: 70%;
@@ -292,9 +324,43 @@ header a:hover {
   }
 }
 
+.encryption-parent {
+  padding-top: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media (max-width: 750px) {
+  .encryption-parent {
+    padding-top: 0;
+    padding-bottom: 10vh;
+  }
+}
+
+@media (max-width: 1000px) {
+  .encryption-parent {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-top: 0;
+  }
+}
+
 .encryption {
-  background: url(images/encrypted.svg) no-repeat center center;
-  height: 80vh;
+  margin-bottom: -5vh;
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -310,9 +376,31 @@ header a:hover {
           align-items: center;
 }
 
+.encryption img {
+  width: 50vw;
+}
+
+@media (max-width: 500px) {
+  .encryption {
+    margin-bottom: 0;
+  }
+  .encryption img {
+    width: 100vw;
+  }
+}
+
 @media (max-width: 750px) {
   .encryption {
     height: 50vh;
+  }
+}
+
+@media (max-width: 1000px) {
+  .encryption {
+    margin-bottom: 0;
+  }
+  .encryption img {
+    width: 70vw;
   }
 }
 
@@ -327,15 +415,11 @@ header a:hover {
 
 .below-encryption h1 {
   font-family: "DM Sans";
-  width: 70%;
-  font-size: 36px;
+  width: 80%;
+  font-size: 2rem;
   font-weight: 900;
   text-align: center;
   color: black;
-}
-
-.below-encryption h1::first-line {
-  color: #d92fdf;
 }
 
 @media (max-width: 750px) {
@@ -382,6 +466,7 @@ footer .cta p {
   font-family: "dm sans";
   font-size: 36px;
   font-weight: 800;
+  text-align: center;
 }
 
 footer .cta a {
@@ -415,6 +500,9 @@ footer .footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-left: 2rem;
 }
 
@@ -545,9 +633,11 @@ footer .attributions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 1rem;
   font-size: 10px;
 }

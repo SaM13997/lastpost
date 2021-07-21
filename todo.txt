@@ -1,0 +1,5 @@
+change the color of the button
+change the hero layout from colum to row
+add the gradient with diagonal clipping
+make the grids up down up down 
+add some stuff by gathering reference from other landing pages
