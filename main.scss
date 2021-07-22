@@ -125,6 +125,7 @@ ul {
         font-size: 1.5em;
         text-transform: capitalize;
         transition: 0.25s;
+        font-weight: 600;
         text-align: center;
       }
 
@@ -132,6 +133,7 @@ ul {
         color: rgb(0, 0, 0);
         font-family: "open sans";
         font-size: 1.5em;
+        font-weight: 500;
         text-transform: capitalize;
         display: block;
         padding: 0.5em 1em;
@@ -313,6 +315,8 @@ ul {
 }
 
 footer {
+  background-color: hsl(216, 53%, 9%);
+  color: #19182b;
   .social-icons {
     padding-top: 3rem;
     display: flex;
@@ -329,13 +333,15 @@ footer {
     height: 35vh;
     p {
       text-transform: uppercase;
-      font-family: "dm sans";
+
+      font-family: "open sans";
       font-size: 36px;
       font-weight: 800;
       text-align: center;
     }
     a {
       font-size: 24px;
+      color: white;
       font-family: "open sans";
       background-color: rgb(31, 23, 24);
       padding: 1rem 3rem;
@@ -352,7 +358,7 @@ footer {
       }
     }
   }
-  background-color: hsl(216, 53%, 9%);
+
   .footer {
     display: flex;
     flex-direction: column;
@@ -362,8 +368,9 @@ footer {
 
     .address-contact {
       padding-top: 2rem;
-      font-family: "open sans";
       color: white;
+      font-size: 1.5rem;
+      font-family: "Monteserrat";
       display: flex;
       img {
         padding-right: 2rem;
@@ -378,6 +385,8 @@ footer {
     }
     .phone-email {
       color: white;
+      font-size: 1.5rem;
+      font-family: "Monteserrat";
       .phone {
         padding-top: 0.5rem;
         img {
@@ -386,6 +395,11 @@ footer {
       }
       .email {
         padding-top: 1rem;
+        a {
+          color: white;
+          font-size: 1.5rem;
+          font-family: "Monteserrat";
+        }
         img {
           padding-right: 1.2rem;
         }
@@ -396,9 +410,15 @@ footer {
       ul {
         padding: 0;
         margin: 0;
-        font-family: "open sans";
+        color: white;
+        font-family: "Monteserrat";
         li {
           padding-top: 1rem;
+          a {
+            color: white;
+            font-size: 1.5rem;
+            font-family: "Monteserrat";
+          }
         }
       }
     }
@@ -407,9 +427,15 @@ footer {
       ul {
         padding: 0;
         margin: 0;
-        font-family: "open sans";
+        color: white;
+        font-family: "Monteserrat";
         li {
           padding-top: 1rem;
+          a {
+            color: white;
+            font-size: 1.5rem;
+            font-family: "Monteserrat";
+          }
         }
       }
     }
